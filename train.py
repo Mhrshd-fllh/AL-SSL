@@ -433,7 +433,7 @@ def train(dataset, data_loader, cfg, labeled_set, supervised_dataset, indices):
                     )
                 )
 
-            if iteration != 0 and (iteration + 1) % 15 == 0:
+            if iteration != 0 and (iteration + 1) % 5000 == 0:
                 print("Saving state, iter:", iteration)
                 net_name = (
                     "/kaggle/working/al_ssl/weights"
@@ -450,7 +450,7 @@ def train(dataset, data_loader, cfg, labeled_set, supervised_dataset, indices):
                 print(net_name)
                 torch.save(net.state_dict(), net_name)
 
-            if iteration >= 13:
+            if iteration >= 4900:
                 finish_flag = False
     return net, net_name
 
